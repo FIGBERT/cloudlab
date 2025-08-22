@@ -11,6 +11,10 @@ services:
     volumes:
       - ./services/email:/data
       # TODO: Mount Caddy certs
+  rspamd:
+    image: a16bitsysop/rspamd
+    volumes:
+      - ./services/rspamd:/var/lib/rspamd
 
   # CALENDAR+CONTACTS
   radicale:
