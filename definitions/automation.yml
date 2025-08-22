@@ -1,0 +1,10 @@
+services:
+  # UPDATES
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  # TODO: BACKUPS
+
+  # TODO: DASHBOARD

@@ -1,0 +1,36 @@
+services:
+  # RSS
+  miniflux:
+    image: miniflux/miniflux:latest
+    depends_on:
+      - miniflux_db
+    environment:
+      - DATABASE_URL=postgres://miniflux:${MINIFLUX_DB_PASSWORD}@miniflux_db/miniflux?sslmode=disable
+      - RUN_MIGRATIONS=1
+  miniflux_db:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=miniflux
+      - POSTGRES_PASSWORD=${MINIFLUX_DB_PASSWORD}
+    volumes:
+      - ./services/miniflux:/var/lib/postgresql/data
+
+  # BOOKMARKS
+  linkding:
+    image: sissbruecker/linkding:latest
+    restart: always
+    volumes:
+      - ./services/linkding:/etc/linkding/data
+
+  # LIVESTREAMING
+  owncast:
+    image: owncast/owncast:latest
+    restart: always
+    volumes:
+      - ./services/owncast:/app/data
+    expose:
+      - 8080
+    ports:
+      - 1935:1935
+
+  # TODO: SYNCTHING

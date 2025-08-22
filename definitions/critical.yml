@@ -1,0 +1,30 @@
+services:
+  # EMAIL
+  email:
+    image: foxcpp/maddy:latest
+    ports:
+      - 25:25
+      - 465:465
+      - 587:587
+      - 993:993
+      - 143:143
+    volumes:
+      - ./services/email:/data
+      # TODO: Mount Caddy certs
+
+  # CALENDAR+CONTACTS
+  radicale:
+    image: xlrl/radicale
+    volumes:
+      - ./services/radicale:/var/radicale
+
+  # PASSWORDS
+  bitwarden:
+    image: vaultwarden/server:alpine
+    restart: always
+    volumes:
+      - ./services/bitwarden:/data
+    environment:
+      - DOMAIN=https://vault.figbert.com
+      - SHOW_PASSWORD_HINT=false
+      - ADMIN_TOKEN=${VAULT_ADMIN_TOKEN}

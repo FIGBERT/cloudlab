@@ -1,0 +1,50 @@
+figbert.com {
+	reverse_proxy homepage
+}
+www.figbert.com {
+	redir https://figbert.com{uri}
+}
+mta-sts.figbert.com {
+	respond /.well-known/mta-sts.txt "version: STSv1\nmode: enforce\nmax_age: 604800\nmx: figbert.com"
+}
+rss.figbert.com {
+	reverse_proxy miniflux:8080
+}
+cal.figbert.com {
+	reverse_proxy radicale:8000
+}
+vault.figbert.com {
+	reverse_proxy bitwarden
+}
+linkding.figbert.com {
+	reverse_proxy linkding:9090
+}
+live.figbert.com {
+	reverse_proxy owncast:8080
+}
+
+# Projects
+## Live
+systemcolors.xyz {
+	reverse_proxy systemcolors:3000
+}
+blinddateabook.com {
+	reverse_proxy blinddateabook:4000
+}
+
+## Retired
+txtodo.app {
+	redir https://figbert.com/projects/txtodo/ permanent
+}
+smmr.software {
+	respond /privacy.txt "We absolutely refuse to track you."
+	respond <<SCREED
+SMMR Software was a collective that made open-source things. Some of work remains below:
+
+Privacy Redirect for Safari -> https://figbert.com/projects/privacy-redirect-for-safari/
+Mabel -> https://figbert.com/projects/mabel/
+SCREED
+}
+d3c3nt.figbert.com {
+	redir https://figbert.com/projects/d3c3nt/ permanent
+}
