@@ -22,6 +22,9 @@ linkding.figbert.com {
 live.figbert.com {
 	reverse_proxy owncast:8080
 }
+sync.figbert.com {
+	reverse_proxy syncthing:8384
+}
 
 # Projects
 ## Live

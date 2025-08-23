@@ -28,9 +28,16 @@ services:
     restart: always
     volumes:
       - ./services/owncast:/app/data
-    expose:
-      - 8080
     ports:
       - 1935:1935
 
-  # TODO: SYNCTHING
+  # FILE SYNC
+  syncthing:
+    image: syncthing/syncthing
+    restart: always
+    volumes:
+      - ./services/syncthing:/var/syncthing
+    ports:
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
