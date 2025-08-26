@@ -5,6 +5,13 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
-  # TODO: BACKUPS
+  # BACKUPS (PULLED FROM UNREGISTRY)
+  tarsnap:
+    image: acts:latest
+    restart: always
+    volumes:
+      - ./services:/acts/backup
+    labels:
+      - "com.centurylinklabs.watchtower.no-pull=true"
 
   # TODO: DASHBOARD
