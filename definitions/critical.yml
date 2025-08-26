@@ -10,7 +10,7 @@ services:
       - 143:143
     volumes:
       - ./services/email:/data
-      # TODO: Mount Caddy certs
+      - ./services/caddy/certificates/acme-v02.api.letsencrypt.org-directory/figbert.com:/data/certs
   rspamd:
     image: a16bitsysop/rspamd
     volumes:
