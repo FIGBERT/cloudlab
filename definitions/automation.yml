@@ -13,5 +13,3 @@ services:
       - ./services:/acts/backup
     labels:
       - "com.centurylinklabs.watchtower.no-pull=true"
-
-  # TODO: DASHBOARD
