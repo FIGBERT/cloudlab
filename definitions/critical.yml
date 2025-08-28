@@ -4,6 +4,8 @@ services:
     image: maddy:latest
     pull_policy: never
     restart: always
+    depends_on:
+      - rspamd
     ports:
       - 25:25
       - 465:465
