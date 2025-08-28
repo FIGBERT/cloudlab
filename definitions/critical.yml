@@ -20,7 +20,6 @@ services:
   rspamd:
     image: rspamd/rspamd:latest
     restart: always
-    user: 0:0
     depends_on:
       - rspmds
     volumes:
