@@ -12,6 +12,6 @@ services:
     pull_policy: never
     restart: always
     volumes:
-      - ./services:/acts/backup
+      - ../services:/acts/backup
     labels:
       - "com.centurylinklabs.watchtower.no-pull=true"

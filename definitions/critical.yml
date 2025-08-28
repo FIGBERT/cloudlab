@@ -11,15 +11,15 @@ services:
       - 993:993
       - 143:143
     volumes:
-      - ./services/email:/data
-      - ./services/caddy/certificates/acme-v02.api.letsencrypt.org-directory/figbert.com:/data/certs
+      - ../services/email:/data
+      - ../services/caddy/certificates/acme-v02.api.letsencrypt.org-directory/figbert.com:/data/certs
     labels:
       - "com.centurylinklabs.watchtower.no-pull=true"
   rspamd:
     image: a16bitsysop/rspamd
     restart: always
     volumes:
-      - ./services/rspamd:/var/lib/rspamd
+      - ../services/rspamd:/var/lib/rspamd
 
   # CALENDAR+CONTACTS
   radicale:
@@ -27,14 +27,14 @@ services:
     command: ["--config", "/var/radicale/config.ini"]
     restart: always
     volumes:
-      - ./services/radicale:/var/radicale
+      - ../services/radicale:/var/radicale
 
   # PASSWORDS
   bitwarden:
     image: vaultwarden/server:alpine
     restart: always
     volumes:
-      - ./services/bitwarden:/data
+      - ../services/bitwarden:/data
     environment:
       - DOMAIN=https://vault.figbert.com
       - SHOW_PASSWORD_HINT=false
