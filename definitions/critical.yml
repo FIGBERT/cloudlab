@@ -18,7 +18,8 @@ services:
 
   # CALENDAR+CONTACTS
   radicale:
-    image: xlrl/radicale
+    image: grepular/radicale:3
+    command: ["--config", "/var/radicale/config.ini"]
     volumes:
       - ./services/radicale:/var/radicale
 
