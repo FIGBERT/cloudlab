@@ -5,6 +5,7 @@ services:
   # FIGBERT.COM
   homepage:
     image: homepage:latest
+    pull_policy: never
     restart: always
     labels:
       - "com.centurylinklabs.watchtower.no-pull=true"
@@ -12,6 +13,7 @@ services:
   # SYSTEMCOLORS.XYZ
   systemcolors:
     image: systemcolors:latest
+    pull_policy: never
     restart: always
     labels:
       - "com.centurylinklabs.watchtower.no-pull=true"
@@ -19,6 +21,7 @@ services:
   # BLINDDATEABOOK.COM
   blinddateabook:
     image: bdab:latest
+    pull_policy: never
     restart: always
     environment:
       - STRIPE_API_KEY=${STRIPE_API_KEY}
