@@ -3,6 +3,7 @@ services:
   email:
     image: maddy:latest
     pull_policy: never
+    restart: always
     ports:
       - 25:25
       - 465:465
@@ -16,6 +17,7 @@ services:
       - "com.centurylinklabs.watchtower.no-pull=true"
   rspamd:
     image: a16bitsysop/rspamd
+    restart: always
     volumes:
       - ./services/rspamd:/var/lib/rspamd
 
@@ -23,6 +25,7 @@ services:
   radicale:
     image: grepular/radicale:3
     command: ["--config", "/var/radicale/config.ini"]
+    restart: always
     volumes:
       - ./services/radicale:/var/radicale
 

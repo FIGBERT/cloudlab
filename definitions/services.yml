@@ -2,6 +2,7 @@ services:
   # RSS
   miniflux:
     image: miniflux/miniflux:latest
+    restart: always
     depends_on:
       - miniflux_db
     environment:
@@ -9,6 +10,7 @@ services:
       - RUN_MIGRATIONS=1
   miniflux_db:
     image: postgres:alpine
+    restart: always
     environment:
       - POSTGRES_USER=miniflux
       - POSTGRES_PASSWORD=${MINIFLUX_DB_PASSWORD}
