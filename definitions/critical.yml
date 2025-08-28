@@ -18,6 +18,7 @@ services:
   rspamd:
     image: a16bitsysop/rspamd
     restart: always
+    user: 1000:1000
     volumes:
       - ../services/rspamd:/var/lib/rspamd
 

@@ -11,6 +11,7 @@ services:
   miniflux_db:
     image: postgres:alpine
     restart: always
+    user: 1000:1000
     environment:
       - POSTGRES_USER=miniflux
       - POSTGRES_PASSWORD=${MINIFLUX_DB_PASSWORD}
@@ -21,6 +22,7 @@ services:
   linkding:
     image: sissbruecker/linkding:latest
     restart: always
+    user: 1000:1000
     volumes:
       - ../services/linkding:/etc/linkding/data
 
