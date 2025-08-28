@@ -9,7 +9,7 @@ services:
       - DATABASE_URL=postgres://miniflux:${MINIFLUX_DB_PASSWORD}@miniflux_db/miniflux?sslmode=disable
       - RUN_MIGRATIONS=1
   miniflux_db:
-    image: postgres:alpine
+    image: postgres:12-alpine
     restart: always
     user: 1000:1000
     environment:
