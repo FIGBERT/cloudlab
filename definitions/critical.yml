@@ -18,11 +18,17 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.no-pull=true"
   rspamd:
-    image: a16bitsysop/rspamd
+    image: rspamd/rspamd:latest
     restart: always
     user: 0:0
+    depends_on:
+      - rspmds
     volumes:
-      - ../services/rspamd:/var/lib/rspamd
+      - ../services/rspamd/config:/etc/rspamd/local.d
+      - ../services/rspamd/data:/var/lib/rspamd
+  rspmds: # lol pun
+    image: redis:alpine
+    restart: always
 
   # CALENDAR+CONTACTS
   radicale:
