@@ -1,7 +1,8 @@
 services:
-  # EMAIL
+  # EMAIL (TEMPORARILY VIA UNREGISTRY UNTIL UPSTREAM ARM BUILDS RESTORED)
   email:
-    image: foxcpp/maddy:latest
+    image: maddy:latest
+    pull_policy: never
     ports:
       - 25:25
       - 465:465
@@ -11,6 +12,8 @@ services:
     volumes:
       - ./services/email:/data
       - ./services/caddy/certificates/acme-v02.api.letsencrypt.org-directory/figbert.com:/data/certs
+    labels:
+      - "com.centurylinklabs.watchtower.no-pull=true"
   rspamd:
     image: a16bitsysop/rspamd
     volumes:
