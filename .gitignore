@@ -1,11 +1,13 @@
 # Databases are for backups not git
-services/owncast
-services/miniflux
-services/bitwarden
-services/linkding
+services/owncast/
+services/miniflux/
+services/bitwarden/
+services/linkding/
+services/caddy/
 
 # Config but not contents of emails
 services/email/**
 !services/email/maddy.conf
-# Same but for calendar
+# Same but for other services
 services/radicale/collections/
+services/rspamd/data/
