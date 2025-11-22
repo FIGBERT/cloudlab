@@ -18,6 +18,7 @@ declarative, and robust.**
     1. [figbert.com]
     2. [blinddateabook.com]
     3. [systemcolors.xyz]
+    4. [scrollthin.gy]
 8. RSS Reader → [Miniflux]
 9. Bookmarks → [Linkding]
 10. Livestreams → [Owncast]
@@ -52,6 +53,7 @@ experts, or reliant on consistent updates, to be managed elsewhere.
 [figbert.com]: https://figbert.com
 [blinddateabook.com]: https://blinddateabook.com
 [systemcolors.xyz]: https://systemcolors.xyz
+[scrollthin.gy]: https://scrollthin.gy
 [Miniflux]: https://miniflux.app/
 [Linkding]: https://linkding.link/
 [Owncast]: https://owncast.online/

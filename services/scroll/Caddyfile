@@ -1,0 +1,9 @@
+{
+	tailscale {
+		ephemeral true
+	}
+}
+
+:8080 {
+	reverse_proxy {$SCROLL_INTERNAL_IP}
+}

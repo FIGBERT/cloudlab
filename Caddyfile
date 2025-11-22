@@ -38,6 +38,9 @@ systemcolors.xyz {
 blinddateabook.com {
 	reverse_proxy blinddateabook:4000
 }
+scrollthin.gy {
+	reverse_proxy scroll:8080
+}
 
 ## Retired
 txtodo.app {
