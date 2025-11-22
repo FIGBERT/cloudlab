@@ -5,5 +5,7 @@
 }
 
 :8080 {
-	reverse_proxy {$SCROLL_INTERNAL_IP}
+	reverse_proxy http://{$SCROLL_INTERNAL_IP} {
+		transport tailscale scrollpi
+	}
 }
