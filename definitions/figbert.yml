@@ -34,6 +34,7 @@ services:
     restart: always
     volumes:
       - ../services/scroll/Caddyfile:/etc/caddy/Caddyfile
+      - ../services/scroll/index.html:/usr/share/caddy/index.html
     environment:
       - TS_AUTHKEY=${TAILSCALE_AUTH_TOKEN}
       - SCROLL_INTERNAL_IP=${SCROLL_INTERNAL_IP}

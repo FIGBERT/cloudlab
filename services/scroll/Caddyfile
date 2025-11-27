@@ -7,5 +7,14 @@
 :8080 {
 	reverse_proxy http://{$SCROLL_INTERNAL_IP} {
 		transport tailscale scrollpi
+
+		@error status 3xx 5xx
+		handle_response @error {
+			root * /usr/share/caddy
+			rewrite * /
+			file_server {
+				status 503
+			}
+		}
 	}
 }
