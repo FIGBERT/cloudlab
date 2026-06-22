@@ -1,3 +1,6 @@
+# "Development files"
+.DS_Store
+
 # Databases are for backups not git
 services/owncast/
 services/miniflux/
