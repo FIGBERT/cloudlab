@@ -1,8 +1,7 @@
 services:
-  # EMAIL (TEMPORARILY VIA UNREGISTRY UNTIL UPSTREAM ARM BUILDS RESTORED)
+  # EMAIL
   email:
-    image: maddy:latest
-    pull_policy: never
+    image: foxcpp/maddy:latest
     restart: always
     depends_on:
       - rspamd
@@ -15,8 +14,6 @@ services:
     volumes:
       - ../services/email:/data
       - ../services/caddy/certificates/acme-v02.api.letsencrypt.org-directory/figbert.com:/data/certs
-    labels:
-      - "com.centurylinklabs.watchtower.no-pull=true"
   rspamd:
     image: rspamd/rspamd:latest
     restart: always
