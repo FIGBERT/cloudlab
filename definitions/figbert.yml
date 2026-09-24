@@ -27,16 +27,3 @@ services:
       - STRIPE_API_KEY=${STRIPE_API_KEY}
     labels:
       - "com.centurylinklabs.watchtower.no-pull=true"
-
-  # SCROLLTHIN.GY
-  scroll:
-    image: ghcr.io/tailscale/caddy-tailscale:main
-    restart: always
-    volumes:
-      - ../services/scroll/Caddyfile:/etc/caddy/Caddyfile
-      - ../services/scroll/index.html:/usr/share/caddy/index.html
-    environment:
-      - TS_AUTHKEY=${TAILSCALE_AUTH_TOKEN}
-      - SCROLL_INTERNAL_IP=${SCROLL_INTERNAL_IP}
-
-  # GIT FORGE (once tragit exists)
