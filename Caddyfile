@@ -38,6 +38,9 @@ systemcolors.xyz {
 blinddateabook.com {
 	reverse_proxy blinddateabook:4000
 }
+teafor.one {
+	reverse_proxy t41
+}
 
 ## Retired
 txtodo.app {

@@ -18,6 +18,7 @@ services:
       - homepage
       - blinddateabook
       - systemcolors
+      - t41
       - miniflux
       - bitwarden
       - radicale
