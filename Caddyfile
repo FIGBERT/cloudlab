@@ -41,6 +41,9 @@ blinddateabook.com {
 teafor.one {
 	reverse_proxy t41
 }
+mta-sts.teafor.one {
+	respond /.well-known/mta-sts.txt "version: STSv1\nmode: enforce\nmax_age: 604800\nmx: figbert.com"
+}
 
 ## Retired
 txtodo.app {
